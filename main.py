@@ -1,4 +1,4 @@
-#!/usr/bin/python3
+
 
 import random
 
@@ -61,7 +61,7 @@ def generateDistances(current, target):
             distances.append(_0to1)
             distances.append(_1to2 + _2to4 + _3to4 + _0to3)
             distances.append(_1to4 + _3to4 + _0to3)
-            print(f"Route 1: {locations[1]} to {locations[]}\nRoute 2: {locations[1]} to {locations[2]} to {locations[4]} to {locations[3]} to {locations[0]}\nRoute 3: {locations[1]} to {locations[4]} to {locations[3]} to {locations[0]}\n\nDistances:")
+            print(f"Route 1: {locations[1]} to {locations[0]}\nRoute 2: {locations[1]} to {locations[2]} to {locations[4]} to {locations[3]} to {locations[0]}\nRoute 3: {locations[1]} to {locations[4]} to {locations[3]} to {locations[0]}\n\nDistances:")
             for i in range(0, len(distances)):
                 print(f"{routes[i]}: {distances[i]}m - Arrival Time: {int((distances[i] / .1)/60)}min")
 
