@@ -1,13 +1,15 @@
-
+#!/usr/bin/python3
 
 import random
+from array import array
 
 def generateDistances(current, target):
     global _0to1, _0to3, _1to2, _1to4, _2to4, _3to4
-    distances = []
+    distances = array("i", [])
     routes = ["Route 1", "Route 2", "Route 3", "Route 4"]
     locations = ["Holy City", "Deep Forest", "Cursed Village", "Watcher's Outpost", "Gateway to Hell"]
     current = str(current)
+
     if current == "0": #Holy City as current
         if target == "0":
             print("You're already here.")
@@ -18,7 +20,7 @@ def generateDistances(current, target):
             distances.append(_0to3 + _3to4 + _2to4 + _1to2)
             print(f"Route 1: {locations[0]} to {locations[1]}\nRoute 2: {locations[0]} to {locations[3]} to {locations[4]} to {locations[1]}\nRoute 3: {locations[0]} to {locations[3]} to {locations[4]} to {locations[2]} to {locations[1]}\n\nDistances:")
             for i in range(0, len(distances)):
-                print(f"{routes[i]}: {distances[i]}m - Arrival Time: {int((distances[i] / .1)/60)}min")
+                print(f"{routes[i]}: {distances[i]}m - ETA: {round(((distances[i] / .1)/60), 2)} hrs")
 
             print(f"Recommend Route: {routes[distances.index(min(distances))]}")
         elif target == "2":
@@ -29,7 +31,7 @@ def generateDistances(current, target):
             distances.append(_0to1 + _1to4 + _2to4)
             print(f"Route 1: {locations[0]} to {locations[1]} to {locations[2]}\nRoute 2: {locations[0]} to {locations[3]} to {locations[4]} to {locations[1]} to {locations[2]}\nRoute 3: {locations[0]} to {locations[3]} to {locations[4]} to {locations[2]}\nRoute 4: {locations[0]} to {locations[1]} to {locations[4]} to {locations[2]}\n\nDistances:")
             for i in range(0, len(distances)):
-                print(f"{routes[i]}: {distances[i]}m - Arrival Time: {int((distances[i] / .1)/60)}min")
+               print(f"{routes[i]}: {distances[i]}m - ETA: {round(((distances[i] / .1)/60), 2)} hrs")
 
             print(f"Recommend Route: {routes[distances.index(min(distances))]}")
         elif target == "3":
@@ -39,7 +41,7 @@ def generateDistances(current, target):
             distances.append(_0to3)
             print(f"Route 1: {locations[0]} to {locations[1]} to {locations[4]} to {locations[3]}\nRoute 2: {locations[0]} to {locations[1]} to {locations[2]} to {locations[4]} to {locations[3]}\nRoute 3: {locations[0]} to {locations[3]}\n\nDistances:")
             for i in range(0, len(distances)):
-                print(f"{routes[i]}: {distances[i]}m - Arrival Time: {int((distances[i] / .1)/60)}min")
+               print(f"{routes[i]}: {distances[i]}m - ETA: {round(((distances[i] / .1)/60), 2)} hrs")
 
             print(f"Recommend Route: {routes[distances.index(min(distances))]}")
         elif target == "4":
@@ -49,11 +51,11 @@ def generateDistances(current, target):
             distances.append(_0to1 + _1to2 + _2to4)
             print(f"Route 1: {locations[0]} to {locations[1]} to {locations[4]}\nRoute 2: {locations[0]} to {locations[3]} to {locations[4]}\nRoute 3: {locations[0]} to {locations[1]} to {locations[2]} to {locations[4]}\n\nDistances:")
             for i in range(0, len(distances)):
-                print(f"{routes[i]}: {distances[i]}m - Arrival Time: {int((distances[i] / .1)/60)}min")
+               print(f"{routes[i]}: {distances[i]}m - ETA: {round(((distances[i] / .1)/60), 2)} hrs")
 
             print(f"Recommend Route: {routes[distances.index(min(distances))]}")
         else: print("Unknown Location.")
-    elif current == "1": #Deep Fores as current
+    elif current == "1": #Deep Forest as current
         if target == "1":
             print("You're already here.")
         elif target == "0":
@@ -63,7 +65,7 @@ def generateDistances(current, target):
             distances.append(_1to4 + _3to4 + _0to3)
             print(f"Route 1: {locations[1]} to {locations[0]}\nRoute 2: {locations[1]} to {locations[2]} to {locations[4]} to {locations[3]} to {locations[0]}\nRoute 3: {locations[1]} to {locations[4]} to {locations[3]} to {locations[0]}\n\nDistances:")
             for i in range(0, len(distances)):
-                print(f"{routes[i]}: {distances[i]}m - Arrival Time: {int((distances[i] / .1)/60)}min")
+               print(f"{routes[i]}: {distances[i]}m - ETA: {round(((distances[i] / .1)/60), 2)} hrs")
 
             print(f"Recommend Route: {routes[distances.index(min(distances))]}")
         elif target == "2":
@@ -74,7 +76,7 @@ def generateDistances(current, target):
             distances.append(_0to1 + _0to3 + _3to4 + _1to4 + _1to2)
             print(f"Route 1: {locations[1]} to {locations[2]}\nRoute 2: {locations[1]} to {locations[4]} to {locations[2]}\nRoute 3: {locations[1]} to {locations[0]} to {locations[3]} to {locations[4]} to {locations[2]}\nRoute 4: {locations[1]} to {locations[0]} to {locations[3]} to {locations[4]} to {locations[1]} to {locations[2]}\n\nDistances:")
             for i in range(0, len(distances)):
-                print(f"{routes[i]}: {distances[i]}m - Arrival Time: {int((distances[i] / .1)/60)}min")
+               print(f"{routes[i]}: {distances[i]}m - ETA: {round(((distances[i] / .1)/60), 2)} hrs")
 
             print(f"Recommend Route: {routes[distances.index(min(distances))]}")
         elif target == "3":
@@ -84,7 +86,7 @@ def generateDistances(current, target):
             distances.append(_0to1 + _0to3)
             print(f"Route 1: {locations[1]} to {locations[2]} to {locations[4]} to {locations[3]}\nRoute 2: {locations[1]} to {locations[4]} to {locations[3]}\nRoute 3: {locations[1]} to {locations[0]} to {locations[3]}\n\nDistances:")
             for i in range(0, len(distances)):
-                print(f"{routes[i]}: {distances[i]}m - Arrival Time: {int((distances[i] / .1)/60)}min")
+                print(f"{routes[i]}: {distances[i]}m - ETA: {round(((distances[i] / .1)/60), 2)} hr")
 
             print(f"Recommend Route: {routes[distances.index(min(distances))]}")
         elif target == "4":
@@ -94,7 +96,7 @@ def generateDistances(current, target):
             distances.append(_0to1 + _0to3 + _3to4)
             print(f"Route 1: {locations[1]} to {locations[4]}\nRoute 2: {locations[1]} to {locations[2]} to {locations[4]}\nRoute 3: {locations[1]} to {locations[0]} to {locations[3]} to {locations[4]}\n\nDistances:")
             for i in range(0, len(distances)):
-                print(f"{routes[i]}: {distances[i]}m - Arrival Time: {int((distances[i] / .1)/60)}min")
+               print(f"{routes[i]}: {distances[i]}m - ETA: {round(((distances[i] / .1)/60), 2)} hrs")
 
             print(f"Recommend Route: {routes[distances.index(min(distances))]}")
         else: print("Unknown Location.")
@@ -109,7 +111,7 @@ def generateDistances(current, target):
             distances.append(_2to4 + _1to4 + _0to1)
             print(f"Route 1: {locations[2]} to {locations[1]} to {locations[0]}\nRoute 2: {locations[2]} to {locations[4]} to {locations[3]} to {locations[0]}\nRoute 3: {locations[2]} to {locations[1]} to {locations[4]} to {locations[3]} to {locations[0]}\nRoute 4: {locations[2]} to {locations[4]} to {locations[1]} to {locations[0]}\n\nDistances:")
             for i in range(0, len(distances)):
-                print(f"{routes[i]}: {distances[i]}m - Arrival Time: {int((distances[i] / .1)/60)}min")
+               print(f"{routes[i]}: {distances[i]}m - ETA: {round(((distances[i] / .1)/60), 2)} hrs")
 
             print(f"Recommend Route: {routes[distances.index(min(distances))]}")
         elif target == "1":
@@ -119,7 +121,7 @@ def generateDistances(current, target):
             distances.append(_2to4 + _3to4 + _0to3 + _0to1)
             print(f"Route 1: {locations[2]} to {locations[4]} to {locations[1]}\nRoute 2: {locations[2]} to {locations[1]}\nRoute 3: {locations[2]} to {locations[4]} to {locations[3]} to {locations[0]} to {locations[1]}\n\nDistances:")
             for i in range(0, len(distances)):
-                print(f"{routes[i]}: {distances[i]}m - Arrival Time: {int((distances[i] / .1)/60)}min")
+               print(f"{routes[i]}: {distances[i]}m - ETA: {round(((distances[i] / .1)/60), 2)} hrs")
 
             print(f"Recommend Route: {routes[distances.index(min(distances))]}")
         elif target == "3":
@@ -129,7 +131,7 @@ def generateDistances(current, target):
             distances.append(_2to4 + _3to4)
             print(f"Route 1: {locations[2]} to {locations[4]} to {locations[1]} to {locations[0]} to {locations[3]}\nRoute 2: {locations[2]} to {locations[1]} to {locations[4]} to {locations[3]}\nRoute 3: {locations[2]} to {locations[4]} to {locations[3]}\n\nDistances:")
             for i in range(0, len(distances)):
-                print(f"{routes[i]}: {distances[i]}m - Arrival Time: {int((distances[i] / .1)/60)}min")
+               print(f"{routes[i]}: {distances[i]}m - ETA: {round(((distances[i] / .1)/60), 2)} hrs")
 
             print(f"Recommend Route: {routes[distances.index(min(distances))]}")
         elif target == "4":
@@ -139,7 +141,7 @@ def generateDistances(current, target):
             distances.append(_1to2 + _0to1 + _0to3 + _3to4)
             print(f"Route 1: {locations[2]} to {locations[4]}\nRoute 2: {locations[2]} to {locations[1]} to {locations[4]}\nRoute 3: {locations[2]} to {locations[1]} to {locations[0]} to {locations[3]} to {locations[4]}\n\nDistances:")
             for i in range(0, len(distances)):
-                print(f"{routes[i]}: {distances[i]}m - Arrival Time: {int((distances[i] / .1)/60)}min")
+               print(f"{routes[i]}: {distances[i]}m - ETA: {round(((distances[i] / .1)/60), 2)} hrs")
 
             print(f"Recommend Route: {routes[distances.index(min(distances))]}")
         else: print("Unknown Location.")
@@ -153,7 +155,7 @@ def generateDistances(current, target):
             distances.append(_3to4 + _2to4 + _1to2 + _0to1)
             print(f"Route 1: {locations[3]} to {locations[0]}\nRoute 2: {locations[3]} to {locations[4]} to {locations[1]} to {locations[0]}\nRoute 3: {locations[3]} to {locations[4]} to {locations[2]} to {locations[1]} to {locations[0]}\n\nDistances:")
             for i in range(0, len(distances)):
-                print(f"{routes[i]}: {distances[i]}m - Arrival Time: {int((distances[i] / .1)/60)}min")
+               print(f"{routes[i]}: {distances[i]}m - ETA: {round(((distances[i] / .1)/60), 2)} hrs")
 
             print(f"Recommend Route: {routes[distances.index(min(distances))]}")
         elif target == "1":
@@ -163,7 +165,7 @@ def generateDistances(current, target):
             distances.append(_3to4 + _2to4 + _1to2)
             print(f"Route 1: {locations[3]} to {locations[0]} to {locations[1]}\nRoute 2: {locations[3]} to {locations[4]} to {locations[1]}\nRoute 3: {locations[3]} to {locations[4]} to {locations[2]} to {locations[1]}\n\nDistances:")
             for i in range(0, len(distances)):
-                print(f"{routes[i]}: {distances[i]}m - Arrival Time: {int((distances[i] / .1)/60)}min")
+               print(f"{routes[i]}: {distances[i]}m - ETA: {round(((distances[i] / .1)/60), 2)} hrs")
 
             print(f"Recommend Route: {routes[distances.index(min(distances))]}")
         elif target == "2":
@@ -173,7 +175,7 @@ def generateDistances(current, target):
             distances.append(_3to4 + _2to4)
             print(f"Route 1: {locations[3]} to {locations[0]} to {locations[1]} to {locations[2]}\nRoute 2: {locations[3]} to {locations[4]} to {locations[1]} to {locations[2]}\nRoute 3: {locations[3]} to {locations[4]} to {locations[2]}\n\nDistances:")
             for i in range(0, len(distances)):
-                print(f"{routes[i]}: {distances[i]}m - Arrival Time: {int((distances[i] / .1)/60)}min")
+                print(f"{routes[i]}: {distances[i]}m - Arrival Time: {round((distances[i] / .1)/60, 2)} hrs")
 
             print(f"Recommend Route: {routes[distances.index(min(distances))]}")
         elif target == "4":
@@ -183,7 +185,7 @@ def generateDistances(current, target):
             distances.append(_0to3 + _0to1 + _1to2 + _2to4)
             print(f"Route 1: {locations[3]} to {locations[0]} to {locations[1]} to {locations[4]}\nRoute 2: {locations[3]} to {locations[4]}\nRoute 3: {locations[3]} to {locations[0]} to {locations[1]} to {locations[2]} to {locations[4]}\n\nDistances:")
             for i in range(0, len(distances)):
-                print(f"{routes[i]}: {distances[i]}m - Arrival Time: {int((distances[i] / .1)/60)}min")
+               print(f"{routes[i]}: {distances[i]}m - ETA: {round(((distances[i] / .1)/60), 2)} hrs")
 
             print(f"Recommend Route: {routes[distances.index(min(distances))]}")
         else: print("Unknown Location.")
@@ -197,7 +199,7 @@ def generateDistances(current, target):
             distances.append(_2to4 + _1to2 + _0to1)
             print(f"Route 1: {locations[4]} to {locations[3]} to {locations[0]}\nRoute 2: {locations[4]} to {locations[1]} to {locations[0]}\nRoute 3: {locations[4]} to {locations[2]} to {locations[1]} to {locations[0]}\n\nDistances:")
             for i in range(0, len(distances)):
-                print(f"{routes[i]}: {distances[i]}m - Arrival Time: {int((distances[i] / .1)/60)}min")
+               print(f"{routes[i]}: {distances[i]}m - ETA: {round(((distances[i] / .1)/60), 2)} hrs")
 
             print(f"Recommend Route: {routes[distances.index(min(distances))]}")
         elif target == "1":
@@ -207,7 +209,7 @@ def generateDistances(current, target):
             distances.append(_3to4 + _0to3 + _0to1)
             print(f"Route 1: {locations[4]} to {locations[1]}\nRoute 2: {locations[4]} to {locations[2]} to {locations[1]}\nRoute 3: {locations[4]} to {locations[3]} to {locations[0]} to {locations[1]}\n\nDistances:")
             for i in range(0, len(distances)):
-                print(f"{routes[i]}: {distances[i]}m - Arrival Time: {int((distances[i] / .1)/60)}min")
+               print(f"{routes[i]}: {distances[i]}m - ETA: {round(((distances[i] / .1)/60), 2)} hrs")
 
             print(f"Recommend Route: {routes[distances.index(min(distances))]}")
         elif target == "2":
@@ -217,7 +219,7 @@ def generateDistances(current, target):
             distances.append(_3to4 + _0to3 + _0to1 + _1to2)
             print(f"Route 1: {locations[4]} to {locations[2]}\nRoute 2: {locations[4]} to {locations[1]} to {locations[2]}\nRoute 3: {locations[4]} to {locations[3]} to {locations[0]} to {locations[1]} to {locations[2]}\n\nDistances:")
             for i in range(0, len(distances)):
-                print(f"{routes[i]}: {distances[i]}m - Arrival Time: {int((distances[i] / .1)/60)}min")
+               print(f"{routes[i]}: {distances[i]}m - ETA: {round(((distances[i] / .1)/60), 2)} hrs")
 
             print(f"Recommend Route: {routes[distances.index(min(distances))]}")
         elif target == "3":
@@ -227,7 +229,7 @@ def generateDistances(current, target):
             distances.append(_2to4 + _1to2 + _0to1 + _0to3)
             print(f"Route 1: {locations[4]} to {locations[1]} to {locations[0]} to {locations[3]}\nRoute 2: {locations[4]} to {locations[3]}\nRoute 3: {locations[4]} to {locations[2]} to {locations[1]} to {locations[0]} to {locations[3]}\n\nDistances:")
             for i in range(0, len(distances)):
-                print(f"{routes[i]}: {distances[i]}m - Arrival Time: {int((distances[i] / .1)/60)}min")
+               print(f"{routes[i]}: {distances[i]}m - ETA: {round(((distances[i] / .1)/60), 2)} hrs")
 
             print(f"Recommend Route: {routes[distances.index(min(distances))]}")
         else: print("Unknown Location.")
@@ -276,9 +278,6 @@ def GenerateMap():
         ''')
     query = input("Destination: ")
     generateDistances(generateLocation, query)
-
-    #Add the missing conditions
-    #Polish the data
 
 
 #Map Variable
